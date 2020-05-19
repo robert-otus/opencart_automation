@@ -134,3 +134,8 @@ dmypy.json
 .idea/opencart_automation.iml
 .idea/vcs.xml
 .idea/workspace.xml
+
+# pkl
+*.pkl
+cookies.pkl
+

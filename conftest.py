@@ -2,12 +2,15 @@ import pytest
 from selenium import webdriver
 
 
+
 @pytest.fixture
 def chrome_browser():
     options = webdriver.ChromeOptions()
-    options.add_argument("headless")
-    #options.add_argument('start-fullscreen')
+    options.add_argument('start-fullscreen')
+    options.add_argument('--ignore-certificate-errors')
+    #options.add_argument("headless")
     driver = webdriver.Chrome(options=options)
+    driver.implicitly_wait(5)
     yield driver
     driver.quit()
 
