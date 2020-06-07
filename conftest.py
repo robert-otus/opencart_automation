@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 
 
 
@@ -19,6 +20,7 @@ def chrome_browser():
 def firefox_browser():
     options = webdriver.FirefoxOptions()
     options.add_argument("-headless")
+    options.add_argument('--ignore-certificate-errors')
     driver = webdriver.Firefox(options=options)
     yield driver
     driver.quit()
@@ -30,6 +32,9 @@ def safari_browser():
     driver.maximize_window()
     yield driver
     driver.quit()
+
+
+
 
 
 
